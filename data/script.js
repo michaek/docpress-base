@@ -1,4 +1,3 @@
-var Pjax = require('pjax')
 var Nprogress = require('nprogress')
 var onmount = require('onmount')
 var toggleClass = require('dom101/toggle-class')
@@ -11,13 +10,6 @@ var Scrollclass = require('./scrollclass')
  */
 
 void (function () {
-  ready(function () {
-    new Pjax({ // eslint-disable-line
-      selectors: ['.body', '.toc-menu', 'title'],
-      analytics: sendPageview
-    })
-  })
-
   ready(sendPageview)
 
   function sendPageview () {
@@ -29,18 +21,6 @@ void (function () {
       })
     }
   }
-
-  document.addEventListener('pjax:send', function () {
-    Nprogress.start()
-  })
-
-  document.addEventListener('pjax:error', function () {
-    Nprogress.done()
-  })
-
-  document.addEventListener('pjax:complete', function () {
-    Nprogress.done()
-  })
 }())
 
 /*
@@ -61,10 +41,6 @@ void (function () {
   ready(function () {
     onmount()
   })
-
-  document.addEventListener('pjax:complete', function () {
-    onmount()
-  })
 }())
 
 /*
@@ -82,10 +58,6 @@ void (function () {
       toggleClass(link, '-active', !active)
       toggleClass(link, '-notactive', active)
     }
-  })
-
-  document.addEventListener('pjax:complete', function () {
-    st.update()
   })
 
   ready(function () {
