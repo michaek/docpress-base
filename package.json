@@ -35,6 +35,7 @@
     "coveralls": "2.11.15",
     "docpress-core": "github:docpress/docpress-core",
     "expect": "1.20.2",
+    "find-node-modules": "^1.0.4",
     "metalsmith": "2.3.0",
     "mocha": "3.1.2",
     "mocha-clean": "1.0.0",
